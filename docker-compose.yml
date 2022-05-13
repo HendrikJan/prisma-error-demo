@@ -1,0 +1,26 @@
+version: "3.2"
+services:
+  nodejs:
+    container_name: nodejs.prisma_demo
+    build:
+      context: .
+      dockerfile: docker/nodejs.dockerfile
+    depends_on:
+      - "mariadb"
+    volumes:
+      - ./:/var/app
+    networks:
+      - default
+  mariadb:
+    container_name: mariadb.prisma_demo
+    image: "mariadb:10.6"
+    restart: "always"
+    networks:
+      - default
+    environment:
+      MARIADB_ROOT_PASSWORD: "root"
+      MARIADB_DATABASE: "development"
+      MARIADB_USER: "development"
+      MARIADB_PASSWORD: "secret"
+    volumes:
+      - ./docker/mariadb_entrypoint:/docker-entrypoint-initdb.d

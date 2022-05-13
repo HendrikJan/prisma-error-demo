@@ -1,0 +1,22 @@
+{
+  "name": "prisma-error-demo",
+  "version": "1.0.0",
+  "description": "demo of an issue i encountered using Prisma",
+  "main": "index.js",
+  "scripts": {
+    "fill": "ts-node ./fill.ts",
+    "dev": "ts-node ./index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^3.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.33",
+    "prisma": "^3.14.0",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  }
+}

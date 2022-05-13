@@ -1,0 +1,21 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Vacancy {
+  id Int @id @default(autoincrement())
+  staffMemberId Int?
+  title String
+  staffMember StaffMember? @relation(fields: [staffMemberId], references: [id])
+}
+
+model StaffMember {
+  id Int @id @default(autoincrement())
+  firstName String
+  vacancies Vacancy[]
+}
